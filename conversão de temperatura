@@ -37,30 +37,29 @@
 <p id="resultado">Resultado</p>
 </div>
     <script>
-     function converte(){
-        //O comando getElementByID nos retorna um elemento do HTML com determinado ID
-        var temperatura = Number(document.getElementByID("temperatura").value)
-        var resultado = 0
-        if(document.getElementById("cf").checked){
-            resultado = temperatura * (9/5) + 32
+        function converte() {
+            var temperatura =  Number(document.getElementById("temperatura").value)
+            var resultado = 0
+            if (document.getElementById("cf").checked) {
+                resultado = temperatura * (9/5) + 32
+            }
+            else if (document.getElementById("ck").checked) {
+                resultado = temperatura + 273.15
+            }
+            else if (document.getElementById("fc").checked) {
+                resultado = (temperatura - 32)*5/9
+            }
+            else if (document.getElementById("fk").checked) {
+                resultado = (temperatura - 32)*5/9 + 273.15
+            }
+            else if (document.getElementById("kc").checked) {
+                resultado = temperatura - 273.15
+            }
+            else if (document.getElementById("kf").checked) {
+                resultado = (temperatura - 273.15)*9/5 + 32
+            }
+            document.getElementById("resultado").innerHTML = resultado
         }
-        else if(document.getElementById("ck").checked){
-            resultado = temperatura + 273.15
-        }
-        else if(document.getElementById("fc").checked){
-            resultado = (temperatura - 32) * 5/9
-        }
-        else if(document.getElementById("fk").checked){
-            resultado = (temperatura - 32) * 5/9 + 273.15
-        }
-        else if(document.getElementById("kc").checked){
-            resultado = temperatura - 273.15
-        }
-        else if(document.getElementById("kf").checked){
-            resultado = (temperatura - 273.15) * 9/5 + 32
-        }
-        alert(resultado)
-        document.getElementById("resultado").innerHTML = resultado
-     }
-</script>
+    </script>
+</body>
 </html>
